@@ -29,3 +29,18 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file ./pams/pom.xml
+
+  test:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 24
+      uses: actions/setup-java@v4
+      with:
+        java-version: '24'
+        distribution: 'temurin'
+        cache: maven
+    - name: Run tests with Maven
+      run: mvn -B test --file ./pams/pom.xml
