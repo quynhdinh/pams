@@ -19,7 +19,7 @@ public class PAMSApp {
         patients.add(new Patient("Mary", "Washington", "30 W Burlington", null, null, LocalDate.of(1932, 5, 31)));
 
         ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-        var list = patients.stream().sorted((x, y) -> Integer.compare(x.getAge(), y.getAge())).toList();
+        var list = patients.stream().sorted((x, y) -> Integer.compare(y.getAge(), x.getAge())).toList();
         list.forEach(
             o -> {
                 try {
